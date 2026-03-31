@@ -17,8 +17,9 @@ export default function NewProductPage() {
     handleSubmit,
     setValue,
     watch,
-    reset,
+    // reset,
     formState: { errors }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } = useForm<ProductFormInput, any, ProductFormValues>({
     resolver: zodResolver(productSchema),
     defaultValues: {

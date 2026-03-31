@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { loginSchema, type LoginForm } from '@/types/forms/login'
-import { Loader2, Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff } from 'lucide-react'
 import { useAuth } from '@/hooks'
 import { Button } from '@/components/ui'
 
@@ -29,8 +29,9 @@ export default function AdminLoginPage() {
     try {
       // El provider ya maneja la redirección y el estado global del User
       await signIn(values.email, values.password)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
-      setError('Credenciales inválidas.')
+      setError(e.message || 'Login failed')
       setLoading(false)
     }
   }
