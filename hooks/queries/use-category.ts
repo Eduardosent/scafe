@@ -4,6 +4,6 @@ import { CategoryRepository } from '@/repositories';
 export const useCategories = () => {
   return useQuery({
     queryKey: ['categories'],
-    queryFn: async () => CategoryRepository.getCategories()
+    queryFn: async () => CategoryRepository.getAll()
   });
 };

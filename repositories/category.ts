@@ -3,7 +3,7 @@ import { Category } from '@/types/api/api';
 
 export const CategoryRepository = {
 
-    async getCategories(): Promise<Category[]> {
+    async getAll(): Promise<Category[]> {
         const { data, error } = await supabase
         .from('categories')
         .select("*");

@@ -33,9 +33,9 @@ const { data: { session } } = await supabase.auth.getSession()
   const isAdminPage = path.startsWith('/admin') && !isAuthPage
 
   // 1. Si está logueado e intenta ir al Login -> Al panel de admin
-  if (session && isAuthPage) {
-    return NextResponse.redirect(new URL('/admin', req.url))
-  }
+  // if (session && isAuthPage) {
+  //   return NextResponse.redirect(new URL('/admin', req.url))
+  // }
 
   // 2. Si NO está logueado e intenta ir a rutas protegidas -> Al login
   if (!session && isAdminPage) {

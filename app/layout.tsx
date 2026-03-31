@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Geist_Mono } from "next/font/google"; // Importamos Poppins
 import "./globals.css";
 import { ReactQueryProvider } from "@/providers/react-query-provider";
 import { AuthProvider } from "@/providers";
+import { Toaster } from "sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
+  variable: "--font-poppins",
 });
 
 const geistMono = Geist_Mono({
@@ -27,13 +29,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${poppins.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ReactQueryProvider>
           <AuthProvider>
             {children}
-            {/* <Toaster position="top-right" richColors closeButton /> */}
+            <Toaster position="top-right" richColors closeButton />
           </AuthProvider>
         </ReactQueryProvider>
       </body>
