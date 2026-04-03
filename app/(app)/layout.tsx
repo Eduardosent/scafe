@@ -5,7 +5,7 @@ import { ShoppingCart, Store } from 'lucide-react';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const navItems = [
-    { name: 'Productos', href: '/', icon: <Store size={22} /> },
+    { name: 'Productos', href: '/products', icon: <Store size={22} /> },
     { name: 'Carrito', href: '/cart', icon: <ShoppingCart size={22} /> },
   ];
 
