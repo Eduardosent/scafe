@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Geist_Mono } from "next/font/google"; // Importamos Poppins
+import { Poppins, Geist_Mono, Arvo } from "next/font/google"; // Importamos Poppins
 import "./globals.css";
 import { ReactQueryProvider } from "@/providers/react-query-provider";
 import { AuthProvider } from "@/providers";
@@ -16,6 +16,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const arvo = Arvo({ 
+  weight: ["400",  "700"],
+  subsets: ['latin'],
+  variable: '--font-arvo', // Aquí solo creás el "apodo" de la fuente
+});
+
 export const metadata: Metadata = {
   title: "El Sendero Café",
   description: "Tranquilidad y sabor",
@@ -29,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${poppins.variable} ${geistMono.variable} ${arvo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ReactQueryProvider>
