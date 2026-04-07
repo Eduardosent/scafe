@@ -4,6 +4,8 @@ import "./globals.css";
 import { ReactQueryProvider } from "@/providers/react-query-provider";
 import { AuthProvider } from "@/providers";
 import { Toaster } from "sonner";
+import { NextIntlClientProvider } from "next-intl";
+import { getAppMessages, getUserLocale } from "@/config/locale";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -27,11 +29,15 @@ export const metadata: Metadata = {
   description: "Tranquilidad y sabor",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const locale = await getUserLocale();
+  const messages = await getAppMessages(locale);
+  
   return (
     <html
       lang="en"
@@ -39,10 +45,12 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ReactQueryProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
             {children}
             <Toaster position="top-right" richColors closeButton />
           </AuthProvider>
+          </NextIntlClientProvider>
         </ReactQueryProvider>
       </body>
     </html>

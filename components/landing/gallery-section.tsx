@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback, Fragment } from 'react';
 import Image from 'next/image';
 import { Dialog, Transition } from '@headlessui/react';
+import { useTranslations } from 'next-intl';
 import { TextParis } from '../ui';
 
 interface GalleryItem {
@@ -24,6 +25,7 @@ const images: GalleryItem[] = [
 ];
 
 export const GallerySection: React.FC = () => {
+  const t = useTranslations('Landing.Gallery');
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   const showNext = useCallback(() => {
@@ -51,14 +53,12 @@ export const GallerySection: React.FC = () => {
 
   return (
     <>
-      {/* SECCIÓN PRINCIPAL CON FONDO #0a0a0a */}
       <section className="bg-[#0a0a0a] py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <TextParis as="h2" className="text-4xl md:text-5xl font-extrabold text-white uppercase tracking-tighter">
-              Nuestra Galería
+              {t('title')}
             </TextParis>
-            {/* Barra separadora ahora blanca */}
             <div className="w-20 h-1 bg-white mx-auto mt-4"></div>
           </div>
 
@@ -77,7 +77,7 @@ export const GallerySection: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                    <span className="text-white border-2 border-white px-4 py-2 text-xs font-bold uppercase tracking-widest bg-black/20 backdrop-blur-sm">
-                     Ver Espacio
+                     {t('viewSpace')}
                    </span>
                 </div>
               </div>
@@ -89,12 +89,10 @@ export const GallerySection: React.FC = () => {
       {/* MODAL / DIALOG */}
       <Transition appear show={!!selectedImage} as={Fragment}>
         <Dialog as="div" className="relative z-[200]" onClose={() => setSelectedImage(null)}>
-          {/* Overlay más oscuro para el modal */}
           <div className="fixed inset-0 bg-black/98 transition-opacity" />
 
           <div className="fixed inset-0 z-10 overflow-hidden">
             <div className="flex h-full flex-col items-center justify-center p-4">
-              
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100"
@@ -102,18 +100,15 @@ export const GallerySection: React.FC = () => {
               >
                 <Dialog.Panel className="relative w-full max-w-6xl h-full flex flex-col items-center justify-center">
                   
-                  {/* BOTÓN CERRAR - Estilo minimalista blanco */}
                   <button 
                     onClick={() => setSelectedImage(null)} 
                     className="absolute top-4 right-4 md:top-6 md:right-6 text-white bg-white/10 hover:bg-white/20 z-[60] p-3 rounded-full transition-colors backdrop-blur-md"
-                    aria-label="Close Gallery"
                   >
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
 
-                  {/* ÁREA DE IMAGEN CENTRAL */}
                   <div className="relative w-full flex-grow flex items-center justify-center group mt-12 md:mt-16">
                     {selectedImage && (
                       <div className="relative w-full h-full max-h-[70vh]">
@@ -127,7 +122,6 @@ export const GallerySection: React.FC = () => {
                       </div>
                     )}
 
-                    {/* NAVEGACIÓN LATERAL - Mayor contraste */}
                     <button onClick={showPrev} className="absolute left-0 md:-left-20 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors p-4">
                       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
                     </button>
@@ -136,7 +130,6 @@ export const GallerySection: React.FC = () => {
                     </button>
                   </div>
 
-                  {/* MINIATURAS CENTRADAS */}
                   <div className="w-full flex justify-center mt-8 gap-2 overflow-x-auto py-4">
                     {images.map((img) => (
                       <div

@@ -1,4 +1,4 @@
-import { Footer, GallerySection, Hero, Navbar, ReservationSection } from "@/components/landing";
+import { ExperiencesSection, Footer, GallerySection, Hero, Navbar, ReservationSection } from "@/components/landing";
 
 export default function Home() {
     return (
@@ -6,6 +6,7 @@ export default function Home() {
             <Navbar />
             <Hero />
             <GallerySection />
+            <ExperiencesSection />
             <ReservationSection />
             <Footer />
         </>

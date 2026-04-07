@@ -1,0 +1,48 @@
+{
+  "Landing": {
+    "Navbar": {
+      "viewProducts": "Ver Productos"
+    },
+    "Hero": {
+      "description": "El Sendero Café es una cafetería única en las montañas de San Juan Talpa, El Salvador."
+    },
+    "Gallery": {
+      "title": "Nuestra Galería",
+      "viewSpace": "Ver Espacio"
+    },
+    "Experiences": {
+      "mainTitle": "La Experiencia El Sendero Cafe",
+      "spitFired": "Carnes al Espiedo",
+      "spitFiredDesc": "Variedad de carnes marinadas, cocinadas a fuego lento o sobre fuego directo en espiedo.",
+      "teasCoffees": "Tés y Cafés",
+      "teasCoffeesDesc": "Bebidas con influencias de todo el mundo, especialidad en cafés, tés y bebidas artesanales.",
+      "pastriesSnacks": "Repostería y Snacks",
+      "pastriesSnacksDesc": "Gama de pastelería fresca y postres curados para maridar perfectamente con nuestros tés y cafés."
+    },
+    "Reservations": {
+      "title": "RESERVÁ TU <br /> MESA",
+      "subtitle": "Envianos tus datos y nos pondremos en contacto con vos para confirmar y agendar tu reservación.",
+      "nameLabel": "Nombre Completo",
+      "namePlaceholder": "Escribí tu nombre",
+      "emailLabel": "Email de Contacto",
+      "emailPlaceholder": "tu@email.com",
+      "phoneLabel": "Teléfono",
+      "phonePlaceholder": "+503 0000 0000",
+      "messageLabel": "Mensaje / Notas",
+      "messagePlaceholder": "¿Alguna petición especial?",
+      "submitButton": "Confirmar Reservación",
+      "toast": {
+        "loading": "Enviando tu reservación...",
+        "success": "¡Reservación enviada con éxito!",
+        "error": "Error al enviar, probá de nuevo."
+      }
+    },
+    "Footer": {
+      "hoursTitle": "Horarios",
+      "daysRange": "Miércoles a Lunes",
+      "closed": "Martes Cerrado",
+      "socialTitle": "Social",
+      "rights": "© {year} El Sendero Café — San Juan Talpa. Todos los derechos reservados."
+    }
+  }
+}

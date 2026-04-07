@@ -4,8 +4,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 import { Toaster, toast } from 'sonner';
+import { useTranslations } from 'next-intl';
 
 export const ReservationSection: React.FC = () => {
+  const t = useTranslations('Landing.Reservations');
+  
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -28,12 +31,12 @@ export const ReservationSection: React.FC = () => {
     };
 
     toast.promise(emailjs.send(serviceID, templateID, templateParams, publicKey), {
-      loading: 'Enviando tu reservación...',
+      loading: t('toast.loading'),
       success: () => {
         setFormData({ nombre: '', email: '', telefono: '', mensaje: '' });
-        return '¡Reservación enviada con éxito!';
+        return t('toast.success');
       },
-      error: 'Error al enviar, probá de nuevo.',
+      error: t('toast.error'),
     });
   };
 
@@ -53,69 +56,68 @@ export const ReservationSection: React.FC = () => {
         </div>
 
         <div className="mb-12">
-          <h2 className="text-xl md:text-6xl font-black uppercase mb-4">
-            RESERVÁ TU <br /> MESA
-          </h2>
+          <h2 
+            className="text-xl md:text-6xl font-black uppercase mb-4"
+            dangerouslySetInnerHTML={{ __html: t('title') }}
+          />
           <p className="text-zinc-500 uppercase tracking-[0.2em] text-xs font-bold max-w-md leading-relaxed">
-            Envianos tus datos y nos pondremos en contacto con vos <br className="hidden md:block" /> 
-            para confirmar y agendar tu reservación.
+            {t('subtitle')}
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
           <div className="flex flex-col gap-3">
-            <label className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Nombre Completo</label>
+            <label className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">{t('nameLabel')}</label>
             <input 
               required
               type="text"
               value={formData.nombre}
-              placeholder="Escribí tu nombre"
+              placeholder={t('namePlaceholder')}
               className="bg-transparent border-b border-white/20 pb-4 outline-none focus:border-white transition-all text-xl tracking-tight"
               onChange={(e) => setFormData({...formData, nombre: e.target.value})}
             />
           </div>
 
           <div className="flex flex-col gap-3">
-            <label className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Email de Contacto</label>
+            <label className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">{t('emailLabel')}</label>
             <input 
               required
               type="email"
               value={formData.email}
-              placeholder="tu@email.com"
+              placeholder={t('emailPlaceholder')}
               className="bg-transparent border-b border-white/20 pb-4 outline-none focus:border-white transition-all text-xl tracking-tight"
               onChange={(e) => setFormData({...formData, email: e.target.value})}
             />
           </div>
 
           <div className="flex flex-col gap-3">
-            <label className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Teléfono</label>
+            <label className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">{t('phoneLabel')}</label>
             <input 
               type="tel"
               value={formData.telefono}
-              placeholder="+503 0000 0000"
+              placeholder={t('phonePlaceholder')}
               className="bg-transparent border-b border-white/20 pb-4 outline-none focus:border-white transition-all text-xl tracking-tight"
               onChange={(e) => setFormData({...formData, telefono: e.target.value})}
             />
           </div>
 
           <div className="flex flex-col gap-3">
-            <label className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Mensaje / Notas</label>
+            <label className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">{t('messageLabel')}</label>
             <input 
               type="text"
               value={formData.mensaje}
-              placeholder="¿Alguna petición especial?"
+              placeholder={t('messagePlaceholder')}
               className="bg-transparent border-b border-white/20 pb-4 outline-none focus:border-white transition-all text-xl tracking-tight"
               onChange={(e) => setFormData({...formData, mensaje: e.target.value})}
             />
           </div>
 
-{/* BOTÓN CENTRADO, PEQUEÑO Y REDONDO COMO EL NAVBAR - DE ESTA IA PUT* */}
           <div className="md:col-span-2 pt-4 flex justify-center">
             <button 
               type="submit"
               className="bg-white text-black px-12 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-xs hover:bg-zinc-200 transition-all active:scale-[0.96] shadow-lg"
             >
-              Confirmar Reservación
+              {t('submitButton')}
             </button>
           </div>
         </form>
