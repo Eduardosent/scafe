@@ -1,19 +1,39 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ShoppingCart, Store } from 'lucide-react';
+import { useCart } from '@/hooks';
+
+// Componente para el círculo con el número
+const CartBadge = () => {
+  const cart = useCart((state) => state.cart);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const totalUniqueProducts = cart.length;
+
+  if (!mounted || totalUniqueProducts === 0) return null;
+
+  return (
+    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[10px] font-bold text-white group-hover:bg-white group-hover:text-black transition-colors">
+      {totalUniqueProducts}
+    </span>
+  );
+};
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const navItems = [
     { name: 'Productos', href: '/products', icon: <Store size={22} /> },
-    { name: 'Carrito', href: '/cart', icon: <ShoppingCart size={22} /> },
+    { name: 'Carrito', href: '/cart', icon: <ShoppingCart size={22} />, isCart: true },
   ];
 
   return (
     <div className="flex h-screen bg-white text-black antialiased">
       {/* Sidebar - Desktop */}
       <aside className="hidden md:flex flex-col w-64 border-r border-black/10">
-        {/* Contenedor del Logo: Alineado a la izquierda y pequeño */}
         <div className="p-6 pb-2 flex items-center justify-start">
           <Link href="/" className="block">
             <Image 
@@ -22,7 +42,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               width={100} 
               height={100} 
               priority
-              className="object-contain h-auto w-24" // Forzado a 96px de ancho
+              className="object-contain h-auto w-24"
             />
           </Link>
         </div>
@@ -32,10 +52,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <Link 
               key={item.name} 
               href={item.href}
-              className="flex items-center gap-4 p-3 hover:bg-black hover:text-white transition-colors duration-200 group"
+              className="flex items-center p-3 hover:bg-black hover:text-white transition-colors duration-200 group"
             >
-              {item.icon}
-              <span className="text-sm font-medium uppercase tracking-widest">{item.name}</span>
+              <div className="flex items-center gap-4 mr-2">
+                {item.icon}
+                <span className="text-sm font-medium uppercase tracking-widest">{item.name}</span>
+              </div>
+              {item.isCart && <CartBadge />}
             </Link>
           ))}
         </nav>
@@ -52,7 +75,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               width={80} 
               height={80} 
               priority
-              className="object-contain h-auto w-16" // Forzado a 64px de ancho
+              className="object-contain h-auto w-16"
             />
           </Link>
         </header>
@@ -67,9 +90,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <Link 
               key={item.name} 
               href={item.href} 
-              className="flex flex-col items-center justify-center text-black/60 hover:text-black"
+              className="relative flex flex-col items-center justify-center text-black/60 hover:text-black"
             >
-              {item.icon}
+              <div className="relative">
+                {item.icon}
+                {item.isCart && (
+                  <div className="absolute -top-2 -right-2 scale-75">
+                    <CartBadge />
+                  </div>
+                )}
+              </div>
               <span className="text-[10px] uppercase mt-1 tracking-tighter font-bold">{item.name}</span>
             </Link>
           ))}

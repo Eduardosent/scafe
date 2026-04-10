@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import { TextParis } from '../ui';
 
 export const HeroText = () => {
   // Definimos el objeto con el tipo Variants
@@ -26,18 +27,18 @@ export const HeroText = () => {
         variants={marqueeVariants}
         animate="animate"
       >
-        <h1 className="text-5xl font-semibold uppercase tracking-tighter text-white mx-20">
-          El Sendero Café
-        </h1>
-        <h1 className="text-5xl font-semibold uppercase tracking-tighter text-white mx-20">
-          El Sendero Café
-        </h1>
-        <h1 className="text-5xl font-semibold uppercase tracking-tighter text-white mx-20">
-          El Sendero Café
-        </h1>
-         <h1 className="text-5xl font-semibold uppercase tracking-tighter text-white mx-20">
-          El Sendero Café
-        </h1>
+        <TextParis as='h1' className="text-5xl md:text-8xl font-semibold uppercase tracking-tighter text-white mx-20">
+          El Sendero Café, San Juan Talpa, El Salvador
+        </TextParis>
+        <TextParis as='h1' className="text-5xl md:text-8xl font-semibold uppercase tracking-tighter text-white mx-20">
+          El Sendero Café, San Juan Talpa, El Salvador
+        </TextParis>
+        <TextParis as='h1' className="text-5xl md:text-8xl font-semibold uppercase tracking-tighter text-white mx-20">
+          El Sendero Café, San Juan Talpa, El Salvador
+        </TextParis>
+        <TextParis as='h1' className="text-5xl md:text-8xl font-semibold uppercase tracking-tighter text-white mx-20">
+          El Sendero Café, San Juan Talpa, El Salvador
+        </TextParis>
       </motion.div>
     </div>
   );
