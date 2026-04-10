@@ -60,24 +60,46 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { TextParis } from '../ui';
 
 export const HeroImages = () => {
   return (
-    <div className="bg-[#0a0a0a] w-full py-8 flex justify-center items-center">
-      {/* - En móvil ocupa casi todo (max-w-xs)
-          - En desktop limitamos el ancho a 2xl (aprox 670px) para que no se desparrame
-      */}
-      <div className="w-full max-w-[320px] md:max-w-2xl px-4">
-        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/5">
-          <Image
-            src="/hero-cafe.avif"
-            alt="Hero café"
-            width={800} 
-            height={450}
-            className="w-full h-auto object-contain block"
-            priority
-          />
+    <div className="bg-[#0a0a0a] w-full py-8 flex justify-center">
+      <div className="w-full max-w-[320px] md:max-w-4xl px-4 relative flex justify-center">
+        
+        {/* Contenedor de Textos Verticales - Alineados en horizontal */}
+        <div className="hidden md:flex absolute lg:-left-42 flex-row gap-3 text-white uppercase tracking-widest text-[9px] lg:text-[11px] font-light">
+          <TextParis as='p' className="[writing-mode:vertical-rl] rotate-180支撑 whitespace-nowrap font-medium text-lg">
+            El Sendero Café & Restaurant
+          </TextParis>
+          <p className="[writing-mode:vertical-rl] rotate-180支撑 whitespace-nowrap font-medium text-lg">
+            山の中のバーとレストラン
+          </p>
+          <p className="[writing-mode:vertical-rl] rotate-180支撑 whitespace-nowrap font-medium text-lg">
+            道路咖啡馆和餐厅
+          </p>
+          <p className="[writing-mode:vertical-rl] rotate-180支撑 whitespace-nowrap font-medium text-lg">
+            የበረሃ ካፌ እና ምግብ ቤት
+          </p>
+          <p className="[writing-mode:vertical-rl] rotate-180支撑 whitespace-nowrap font-medium text-lg">
+            مقهى ومطعم الطريق
+          </p>
         </div>
+
+        {/* Contenedor de la Imagen principal */}
+        <div className="w-full max-w-2xl">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/5">
+            <Image
+              src="/hero-cafe.avif"
+              alt="Hero café"
+              width={800}
+              height={450}
+              className="w-full h-auto object-contain block"
+              priority
+            />
+          </div>
+        </div>
+        
       </div>
     </div>
   );

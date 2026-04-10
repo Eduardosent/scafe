@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { FaInstagram, FaTiktok, FaFacebookF } from 'react-icons/fa';
 import { FiMapPin, FiClock } from 'react-icons/fi';
+import { TextParis } from '../ui';
 
 export const Footer: React.FC = () => {
   const t = useTranslations('Landing.Footer');
@@ -17,9 +18,9 @@ export const Footer: React.FC = () => {
           
           {/* COLUMNA 1: BRAND & UBICACIÓN */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-bold text-xl tracking-tighter">
-              EL SENDERO <span className="text-stone-400">CAFÉ</span>
-            </h3>
+            <TextParis as='h3' className="font-bold text-2xl tracking-tighter">
+              EL SENDERO CAFÉ
+            </TextParis>
             <div className="flex items-start gap-3 text-zinc-400 mt-2">
               <FiMapPin className="w-5 h-5 mt-1 flex-shrink-0 text-white" />
               <p className="text-sm leading-relaxed">

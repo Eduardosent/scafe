@@ -3,7 +3,7 @@ import React from 'react';
 
 // Cargamos la fuente una sola vez aquí, pinche basura que soy
 const helloParis = localFont({
-  src: '../../public/fonts/helloparisserif-bold.ttf', // Ajustá los '../' según tu carpeta
+  src: '../../public/fonts/helloparisserif-medium.ttf', // Ajustá los '../' según tu carpeta
   display: 'swap',
 });
 

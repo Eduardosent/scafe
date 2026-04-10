@@ -27,16 +27,16 @@ export const HeroText = () => {
         variants={marqueeVariants}
         animate="animate"
       >
-        <TextParis as='h1' className="text-5xl md:text-8xl font-semibold uppercase tracking-tighter text-white mx-20">
+        <TextParis as='h1' className="text-5xl md:text-9xl font-medium tracking-tighter text-white mx-20">
           El Sendero Café, San Juan Talpa, El Salvador
         </TextParis>
-        <TextParis as='h1' className="text-5xl md:text-8xl font-semibold uppercase tracking-tighter text-white mx-20">
+        <TextParis as='h1' className="text-5xl md:text-9xl font-medium tracking-tighter text-white mx-20">
           El Sendero Café, San Juan Talpa, El Salvador
         </TextParis>
-        <TextParis as='h1' className="text-5xl md:text-8xl font-semibold uppercase tracking-tighter text-white mx-20">
+        <TextParis as='h1' className="text-5xl md:text-9xl font-medium tracking-tighter text-white mx-20">
           El Sendero Café, San Juan Talpa, El Salvador
         </TextParis>
-        <TextParis as='h1' className="text-5xl md:text-8xl font-semibold uppercase tracking-tighter text-white mx-20">
+        <TextParis as='h1' className="text-5xl md:text-9xl font-medium tracking-tighter text-white mx-20">
           El Sendero Café, San Juan Talpa, El Salvador
         </TextParis>
       </motion.div>

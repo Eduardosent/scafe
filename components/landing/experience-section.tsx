@@ -132,7 +132,7 @@ export const ExperiencesSection: React.FC = () => {
         
         {/* Título de Sección */}
         <div className="border-b border-white/20 mb-12 pb-4">
-          <TextParis as="h2" className="text-4xl md:text-6xl uppercase tracking-tighter leading-tight">
+          <TextParis as="h2" className="text-center text-4xl md:text-8xl tracking-tighter leading-tight font-[300]">
             {t('mainTitle')}
           </TextParis>
         </div>
@@ -146,12 +146,12 @@ export const ExperiencesSection: React.FC = () => {
             >
               {/* Bloque de Texto */}
               <div className={`${exp.bgColor} text-black p-5 min-h-[180px] md:min-h-[220px] flex flex-col justify-start`}>
-                <TextParis as="h3" className="text-2xl md:text-3xl mb-3 leading-none uppercase">
+                <TextParis as="h3" className="text-2xl md:text-4xl mb-3 leading-none font-[300]">
                   {exp.title}
                 </TextParis>
-                <p className="text-sm md:text-base leading-tight font-medium">
+                <TextParis as="p" className="text-xl md:text-2xl leading-[1] font-medium tracking-[-0.05em] md:max-w-[250px]">
                   {exp.description}
-                </p>
+                </TextParis>
               </div>
 
               {/* Imagen */}

@@ -4,20 +4,22 @@
       "viewProducts": "View Products"
     },
     "Hero": {
-      "description": "El Sendero Café is a unique coffee shop in the mountains of San Juan Talpa, El Salvador."
-    },
+  "subtitle": "Light Fare On Your Mountain Journey",
+  "description": "el sendero cafe is a unique cafe in the mountains of san juan talpa, el salvador.",
+  "events": "events are hosted at el sendero cafe on a regular basis, you can see our events calendar, here."
+},
     "Gallery": {
       "title": "Our Gallery",
       "viewSpace": "View Space"
     },
     "Experiences": {
       "mainTitle": "The El Sendero Cafe Experience",
-      "spitFired": "Spit Fired Meats",
-      "spitFiredDesc": "A variety of marinated meats, slow-cooked or roasted over direct fire on a spit.",
+      "spitFired": "Spit Fired",
+      "spitFiredDesc": "a variety of marinated meats, slow-cooked or roasted over direct fire on a spit.",
       "teasCoffees": "Teas and Coffees",
-      "teasCoffeesDesc": "Drinks with global influences, specializing in coffees, teas, and artisanal beverages.",
+      "teasCoffeesDesc": "drinks with global influences, specializing in coffees, teas, and artisanal beverages.",
       "pastriesSnacks": "Pastries and Snacks",
-      "pastriesSnacksDesc": "A range of fresh pastries and desserts curated to pair perfectly with our teas and coffees."
+      "pastriesSnacksDesc": "a range of fresh pastries and desserts curated to pair perfectly with our teas and coffees."
     },
     "Reservations": {
       "title": "BOOK YOUR <br /> TABLE",

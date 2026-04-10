@@ -3,9 +3,11 @@
     "Navbar": {
       "viewProducts": "Ver Productos"
     },
-    "Hero": {
-      "description": "El Sendero Café es una cafetería única en las montañas de San Juan Talpa, El Salvador."
-    },
+"Hero": {
+  "subtitle": "Comida Ligera En Tu Viaje A La Montaña",
+  "description": "el sendero café es una cafetería única en las montañas de san juan talpa, el salvador.",
+  "events": "se organizan eventos en el sendero café de forma regular, puedes ver nuestro calendario de eventos aquí."
+},
     "Gallery": {
       "title": "Nuestra Galería",
       "viewSpace": "Ver Espacio"
@@ -13,11 +15,11 @@
     "Experiences": {
       "mainTitle": "La Experiencia El Sendero Cafe",
       "spitFired": "Carnes al Espiedo",
-      "spitFiredDesc": "Variedad de carnes marinadas, cocinadas a fuego lento o sobre fuego directo en espiedo.",
+      "spitFiredDesc": "variedad de carnes marinadas, cocinadas a fuego lento o sobre fuego directo en espiedo.",
       "teasCoffees": "Tés y Cafés",
-      "teasCoffeesDesc": "Bebidas con influencias de todo el mundo, especialidad en cafés, tés y bebidas artesanales.",
+      "teasCoffeesDesc": "bebidas con influencias de todo el mundo, especialidad en cafés, tés y bebidas artesanales.",
       "pastriesSnacks": "Repostería y Snacks",
-      "pastriesSnacksDesc": "Gama de pastelería fresca y postres curados para maridar perfectamente con nuestros tés y cafés."
+      "pastriesSnacksDesc": "gama de pastelería fresca y postres curados para maridar perfectamente con nuestros tés y cafés."
     },
     "Reservations": {
       "title": "RESERVÁ TU <br /> MESA",
