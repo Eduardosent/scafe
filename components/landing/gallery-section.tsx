@@ -18,10 +18,10 @@ const images: GalleryItem[] = [
   { id: 2, src: '/galery-2.jpg', alt: 'Gallery Image 2', gridClasses: 'md:col-span-1 md:row-span-1' },
   { id: 3, src: '/galery-3.jpg', alt: 'Gallery Image 3', gridClasses: 'md:col-span-1 md:row-span-1' },
   { id: 4, src: '/galery-4.jpg', alt: 'Gallery Image 4', gridClasses: 'md:col-span-2 md:row-span-1' },
-  { id: 5, src: '/galery-5.jpg', alt: 'Gallery Image 5', gridClasses: 'md:col-span-1 md:row-span-1' },
-  { id: 6, src: '/galery-6.jpg', alt: 'Gallery Image 6', gridClasses: 'md:col-span-1 md:row-span-1' },
-  { id: 7, src: '/galery-7.jpg', alt: 'Gallery Image 7', gridClasses: 'md:col-span-1 md:row-span-1' },
-  { id: 8, src: '/galery-8.jpg', alt: 'Gallery Image 8', gridClasses: 'md:col-span-1 md:row-span-1' },
+  // { id: 5, src: '/galery-5.jpg', alt: 'Gallery Image 5', gridClasses: 'md:col-span-1 md:row-span-1' },
+  // { id: 6, src: '/galery-6.jpg', alt: 'Gallery Image 6', gridClasses: 'md:col-span-1 md:row-span-1' },
+  // { id: 7, src: '/galery-7.jpg', alt: 'Gallery Image 7', gridClasses: 'md:col-span-1 md:row-span-1' },
+  // { id: 8, src: '/galery-8.jpg', alt: 'Gallery Image 8', gridClasses: 'md:col-span-1 md:row-span-1' },
 ];
 
 export const GallerySection: React.FC = () => {
