@@ -28,14 +28,14 @@
     "Reservations": {
       "title": "BOOK YOUR <br /> TABLE",
       "subtitle": "Send us your details and we will contact you to confirm and schedule your reservation.",
-      "nameLabel": "Full Name",
+      "nameLabel": "Name",
       "namePlaceholder": "Enter your name",
       "emailLabel": "Contact Email",
       "emailPlaceholder": "your@email.com",
       "phoneLabel": "Phone Number",
       "phonePlaceholder": "+503 0000 0000",
       "messageLabel": "Message / Notes",
-      "messagePlaceholder": "Any special requests?",
+      "messagePlaceholder": "",
       "submitButton": "Confirm Reservation",
       "toast": {
         "loading": "Sending your reservation...",

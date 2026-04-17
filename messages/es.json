@@ -28,14 +28,14 @@
     "Reservations": {
       "title": "RESERVÁ TU <br /> MESA",
       "subtitle": "Envianos tus datos y nos pondremos en contacto con vos para confirmar y agendar tu reservación.",
-      "nameLabel": "Nombre Completo",
-      "namePlaceholder": "Escribí tu nombre",
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Escriba su nombre",
       "emailLabel": "Email de Contacto",
       "emailPlaceholder": "tu@email.com",
       "phoneLabel": "Teléfono",
       "phonePlaceholder": "+503 0000 0000",
       "messageLabel": "Mensaje / Notas",
-      "messagePlaceholder": "¿Alguna petición especial?",
+      "messagePlaceholder": "",
       "submitButton": "Confirmar Reservación",
       "toast": {
         "loading": "Enviando tu reservación...",

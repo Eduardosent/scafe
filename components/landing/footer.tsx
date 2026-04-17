@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
           {/* COLUMNA 1: BRAND & UBICACIÓN */}
           <div className="flex flex-col gap-4">
             <TextParis as='h3' className="font-bold text-2xl tracking-tighter">
-              EL SENDERO CAFÉ
+              El Sendero Café
             </TextParis>
             <div className="flex items-start gap-3 text-zinc-400 mt-2">
               <FiMapPin className="w-5 h-5 mt-1 flex-shrink-0 text-white" />

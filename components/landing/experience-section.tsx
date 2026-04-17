@@ -146,10 +146,10 @@ export const ExperiencesSection: React.FC = () => {
             >
               {/* Bloque de Texto */}
               <div className={`${exp.bgColor} text-black p-5 min-h-[180px] md:min-h-[220px] flex flex-col justify-start`}>
-                <TextParis as="h3" className="text-2xl md:text-4xl mb-3 leading-none font-[300]">
+                <TextParis as="h3" className="text-2xl md:text-4xl mb-3 leading-none font-[500]">
                   {exp.title}
                 </TextParis>
-                <TextParis as="p" className="text-xl md:text-2xl leading-[1] font-medium tracking-[-0.05em] md:max-w-[250px]">
+                <TextParis as="p" className="text-xl md:text-2xl leading-[1] font-medium tracking-[-0.05em] md:max-w-[250px] font-[500]">
                   {exp.description}
                 </TextParis>
               </div>

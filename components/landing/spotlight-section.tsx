@@ -58,6 +58,16 @@ const images = [
     <section className="bg-black text-white py-16 md:py-20 px-6 overflow-hidden">
       <div className="max-w-[1600px] mx-auto relative group">
         
+        {/* IMAGEN DEL CRÁNEO (SKULL) */}
+        <div className="flex justify-center mb-4">
+          <Image 
+            src="/skull.png" 
+            alt="Skull Image" 
+            width={500} 
+            height={500} 
+            className="w-80 h-80 md:w-120 md:h-120 object-contain"
+          />
+        </div>
         {/* Título */}
         <div className="border-b border-white/10 mb-8 pb-6">
           <TextParis as="h2" className="text-4xl md:text-7xl tracking-tighter leading-none font-light">

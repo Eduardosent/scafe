@@ -26,7 +26,7 @@ export const Navbar: React.FC = () => {
             />
           </div>
           <TextParis className="hidden sm:block font-bold text-white tracking-tight text-3xl">
-            EL SENDERO CAFÉ
+            El Sendero Café
           </TextParis>
         </Link>
 
