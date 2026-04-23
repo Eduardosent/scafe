@@ -135,10 +135,13 @@ const images = [
         </div>
 
         {/* Texto Inferior */}
-        <div className="max-w-2xl mt-4">
+        <div className="w-full flex flex-row justify-between">
           <TextParis as="p" className="text-xl md:text-3xl md:max-w-[420px] leading-[0.9] tracking-tight text-neutral-200">
             {t('text')}
           </TextParis>
+          <TextParis as="p" className="[writing-mode:vertical-rl] text-md">
+    Quote by Anastasio Aquino (1792–1833)
+  </TextParis>
         </div>
       </div>
 
