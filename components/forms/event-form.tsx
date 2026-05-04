@@ -75,7 +75,7 @@ export function EventForm({ onSubmit, isPending, defaultValues }: EventFormProps
   return (
     <form 
       onSubmit={handleSubmit(handleDebugSubmit, onInvalid)}
-      className="space-y-8 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6"
+      className="space-y-8 bg-white p-6"
     >
       <ImageUploader label="Galería del Evento" name="images" form={form} />
 
