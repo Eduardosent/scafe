@@ -4,3 +4,4 @@ export { CountryRepository } from './country'
 export { CountryStateRepository } from './country-state'
 export { DevelopmentLevelRepository } from './development-level'
 export { ProductRepository } from './product'
+export { EventRepository } from "./event"

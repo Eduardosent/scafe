@@ -7,6 +7,7 @@ import { ChevronLeft, Plus } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
+import { Input, Textarea } from '@/components/forms/inputs' // Componentes atómicos
 import { ProductFormInput, productSchema, type ProductFormValues } from '@/types/forms/product'
 import { useCategories, useCreateProduct } from '@/hooks/queries'
 
@@ -17,9 +18,7 @@ export default function NewProductPage() {
     handleSubmit,
     setValue,
     watch,
-    // reset,
     formState: { errors }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } = useForm<ProductFormInput, any, ProductFormValues>({
     resolver: zodResolver(productSchema),
     defaultValues: {
@@ -65,36 +64,33 @@ export default function NewProductPage() {
       >
         <div className="space-y-2">
           <label className="text-sm font-medium">Título</label>
-          <input 
+          <Input 
             {...register('title')} 
             placeholder="Ej. Café de Especialidad Bourbon"
-            className="w-full p-2 border rounded-md outline-none focus:ring-1 focus:ring-black" 
+            error={errors.title?.message}
           />
-          {errors.title && <p className="text-red-500 text-xs mt-1">{errors.title.message}</p>}
         </div>
 
         <div className="space-y-2">
           <label className="text-sm font-medium">Descripción</label>
-          <textarea 
+          <Textarea 
             {...register('description')} 
             rows={4} 
             placeholder="Describe las notas de cata, origen o características del producto..."
-            className="w-full p-2 border rounded-md outline-none focus:ring-1 focus:ring-black resize-none" 
+            error={errors.description?.message}
           />
-          {errors.description && <p className="text-red-500 text-xs mt-1">{errors.description.message}</p>}
         </div>
 
         <div className="grid grid-cols-2 gap-6">
           <div className="space-y-2">
             <label className="text-sm font-medium">Precio ($)</label>
-            <input 
+            <Input 
               type="number" 
               step="0.01" 
               {...register('price')} 
               placeholder="0.00"
-              className="w-full p-2 border rounded-md outline-none focus:ring-1 focus:ring-black" 
+              error={errors.price?.message}
             />
-            {errors.price && <p className="text-red-500 text-xs mt-1">{errors.price.message}</p>}
           </div>
 
           <div className="space-y-2">
@@ -115,7 +111,9 @@ export default function NewProductPage() {
                 </button>
               ))}
             </div>
-            {errors.category_ids && <p className="text-red-500 text-xs mt-1">{errors.category_ids.message}</p>}
+            {errors.category_ids && (
+              <p className="text-red-500 text-xs mt-1">{errors.category_ids.message}</p>
+            )}
           </div>
         </div>
 
