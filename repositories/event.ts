@@ -1,6 +1,66 @@
-import { api } from "@/config";
+import { api, supabase } from "@/config";
+import { Event, EventFilters, PaginatedResponse } from "@/types/api";
 
 export const EventRepository = {
+async getAll(filters?: EventFilters): Promise<PaginatedResponse<Event>> {
+    try {
+      const limit = filters?.limit || 10;
+      const page = filters?.page || 1;
+      const from = (page - 1) * limit;
+      const to = from + limit - 1;
+
+      // 1. Base query con inner join
+      let query = supabase
+        .from('events')
+        .select(`
+          *,
+          event_dates!inner (
+            id,
+            date,
+            start_time,
+            end_time
+          )
+        `, { count: 'exact' });
+
+      // 2. Filtros
+      if (filters?.title) {
+        query = query.ilike('title', `%${filters.title}%`);
+      }
+      if (typeof filters?.is_free === 'boolean') {
+        query = query.eq('is_free', filters.is_free);
+      }
+
+      // 3. Rango de fechas
+      if (filters?.startDate) {
+        query = query.gte('event_dates.date', filters.startDate);
+      }
+      if (filters?.endDate) {
+        query = query.lte('event_dates.date', filters.endDate);
+      }
+
+      // 4. Ejecución
+      const { data, error, count } = await query
+        .order('created_at', { ascending: false })
+        .range(from, to);
+
+      if (error) throw error;
+
+      const totalItems = count || 0;
+
+      // Mapeo exacto a tu interfaz PaginatedResponse<T>
+      return {
+        data: (data as Event[]) || [],
+        count: totalItems,
+        currentPage: page,
+        pageSize: limit,
+        totalPages: Math.ceil(totalItems / limit)
+      };
+    } catch (error: any) {
+      const message = error.message || 'Error al obtener eventos';
+      throw new Error(message);
+    }
+  },
+  
   async createEvent(request: any) {
     try {
       const formData = new FormData();

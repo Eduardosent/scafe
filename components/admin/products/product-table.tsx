@@ -6,10 +6,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useEvents } from "@/hooks/queries/use-event";
 import { Product } from "@/types/api";
 
 export const ProductTable = ({ products }: { products: Product[] }) => {
   console.log(products)
+  const { data: events} = useEvents()
+  console.log(events)
   return (
     <div className="max-w-6xl mx-auto p-4 md:p-6">
       <div className="rounded-lg border border-neutral-200 bg-white shadow-sm overflow-hidden">

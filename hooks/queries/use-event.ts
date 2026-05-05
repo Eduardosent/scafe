@@ -1,7 +1,8 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { EventRepository } from '@/repositories';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+import { Event, EventFilters, PaginatedResponse } from '@/types/api';
 
 export const useCreateEvent = () => {
   const router = useRouter();
@@ -26,5 +27,13 @@ export const useCreateEvent = () => {
         description: error.message
       });
     },
+  });
+};
+
+export const useEvents = (filters?: EventFilters) => {
+  return useQuery({
+    queryKey: ["events", filters], 
+    queryFn: () => EventRepository.getAll(filters),
+    placeholderData: (previousData) => previousData,
   });
 };

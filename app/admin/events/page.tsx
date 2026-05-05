@@ -3,30 +3,31 @@
 import React from 'react'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui'
-import { ProductTable } from '@/components/admin/products'
+import { EventTable } from '@/components/admin/events'
 import Link from 'next/link'
-import { useProducts } from '@/hooks/queries'
+import { useEvents } from '@/hooks/queries'
 
-export default function ProductPage() {
-  const { data: products } = useProducts()
+export default function EventPage() {
+  const { data: pagination } = useEvents()
+  console.log(pagination)
   return (
     <div className="flex flex-col gap-4 p-6">
       {/* Contenedor del encabezado */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Gestión de Productos</h1>
+        <h1 className="text-2xl font-bold">Gestión de Eventos</h1>
         
         {/* Enlace al formulario de creación */}
-        <Link href="/admin/products/add">
+        <Link href="/admin/events/add">
           <Button className="flex items-center gap-2">
             <Plus className="size-4" />
-            Nuevo Producto
+            Nuevo Evento
           </Button>
         </Link>
       </div>
 
       {/* Tabla debajo */}
       <div className="w-full">
-        <ProductTable products={products ?? []} />
+        <EventTable events={pagination?.data ?? []} />
       </div>
     </div>
   )
