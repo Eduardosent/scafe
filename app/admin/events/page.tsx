@@ -9,7 +9,7 @@ import { useEvents } from '@/hooks/queries'
 
 export default function EventPage() {
   const { data: pagination } = useEvents()
-  console.log(pagination)
+
   return (
     <div className="flex flex-col gap-4 p-6">
       {/* Contenedor del encabezado */}

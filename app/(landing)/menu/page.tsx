@@ -1,108 +1,3 @@
-// // app/menu/page.tsx
-
-// import { TextParis } from "@/components/ui";
-
-// type MenuItem = {
-//   nombre: string;
-//   precio: number;
-//   descripcion?: string;
-// };
-
-// const menuItems: MenuItem[] = [
-//   {
-//     nombre: "Café de Montaña",
-//     precio: 4.50,
-//     descripcion: "Tueste medio, notas a chocolate y caramelo. Origen local.",
-//   },
-//   {
-//     nombre: "Té de Hierbas Silvestres",
-//     precio: 3.80,
-//     descripcion: "Infusión con menta, toronjil y hierbabuena.",
-//   },
-//   {
-//     nombre: "Pastel de Zanahoria",
-//     precio: 5.20,
-//     descripcion: "Con nueces y glaseado de queso crema.",
-//   },
-//   {
-//     nombre: "Sandwich Campestre",
-//     precio: 8.90,
-//     descripcion: "Pan artesanal, pollo deshebrado, aguacate y vegetales frescos.",
-//   },
-//   {
-//     nombre: "Limonada con Jengibre",
-//     precio: 4.20,
-//     descripcion: "",
-//   },
-//   {
-//     nombre: "Espresso Doble",
-//     precio: 3.50,
-//     descripcion: "Intenso y cremoso. 100% arábica.",
-//   },
-// ];
-
-// export default function MenuPage() {
-//   return (
-//     <div className="min-h-screen bg-black">
-//       <div className="max-w-3xl mx-auto px-4 py-12 md:py-16 lg:py-20">
-//         {/* Badge actualización diaria */}
-//         <div className="flex justify-center my-8">
-//           <div className="inline-block bg-amber-900/30 border border-amber-700/50 rounded-full px-4 py-1.5 backdrop-blur-sm">
-//             <TextParis className="text-xs text-amber-300 tracking-wide">
-//               ✨ Menú actualizado diariamente ✨
-//             </TextParis>
-//           </div>
-//         </div>
-
-//         {/* Cuadro del menú - estilo vidrio oscuro */}
-//         <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
-//           {/* Header */}
-//           <div className="border-b border-white/10 bg-white/5 px-6 py-5">
-//             <TextParis className="text-xl font-semibold text-white">
-//               Menú del día
-//             </TextParis>
-//             <TextParis className="text-sm text-white/60 mt-1">
-//               Selección fresca para tu experiencia en la montaña
-//             </TextParis>
-//           </div>
-
-//           {/* Lista de platillos */}
-//           <div className="divide-y divide-white/10">
-//             {menuItems.map((item, index) => (
-//               <div key={index} className="px-6 py-5 hover:bg-white/5 transition-colors">
-//                 <div className="flex justify-between items-start gap-4">
-//                   <div className="flex-1">
-//                     <TextParis className="text-base font-medium text-white">
-//                       {item.nombre}
-//                     </TextParis>
-//                     {item.descripcion && (
-//                       <TextParis className="text-sm text-white/50 mt-1">
-//                         {item.descripcion}
-//                       </TextParis>
-//                     )}
-//                   </div>
-//                   <div className="shrink-0">
-//                     <TextParis className="text-base font-semibold text-amber-400">
-//                       ${item.precio.toFixed(2)}
-//                     </TextParis>
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-
-//           {/* Footer */}
-//           <div className="border-t border-white/10 bg-white/5 px-6 py-4">
-//             <TextParis className="text-xs text-white/40 text-center">
-//               Los precios incluyen impuestos · Consulta por opciones veganas
-//             </TextParis>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 import Image from 'next/image';
 import { TextParis } from '@/components/ui';
 
@@ -117,6 +12,37 @@ const menuItems = [
   { name: "Avocado Toast", image: "/galery-8.jpg" }
 ];
 
+const extraMenu = [
+  {
+    category: "Pinchos",
+    items: ["meat pinchos on white steamed jasmine rice"]
+  },
+  {
+    category: "Vietnamese-esque bun",
+    items: ["noodles, meat, special sauce and skewers"]
+  },
+  {
+    category: "Drinks",
+    items: [
+      "dalgonatte", "batido de coco", "batido de aguacate", "batido de guineo",
+      "matcha", "taro smoothie", "thai tea", "thai tea smoothie", "meganade",
+      "green giant", "limonada gaseosa", "pepino", "american coffee",
+      "capuccino", "latte", "black milk tea", "jasmine tea", "oolong tea", "rooibos tea"
+    ]
+  },
+  {
+    category: "Postres",
+    items: [
+      "palomitas", "empanadas", "quesadilla", "brownie",
+      "blonde", "picuda", "flan", "waffle con sorbete", "nuegados"
+    ]
+  },
+  {
+    category: "Other ideas",
+    items: ["egg on paper roll", "burger taco"]
+  }
+];
+
 export default function MenuPage() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] pt-32 pb-20">
@@ -129,6 +55,7 @@ export default function MenuPage() {
         </TextParis>
       </header>
 
+      {/* Galería de Imágenes Existente */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-white/10">
         {menuItems.map((item, i) => (
           <div key={i} className="relative aspect-square border-r border-b border-white/10 group">
@@ -138,7 +65,6 @@ export default function MenuPage() {
               fill
               className="object-cover brightness-[0.6] transition-all duration-500 group-hover:brightness-90"
             />
-
             <div className="absolute inset-0 flex items-end p-6 pointer-events-none">
               <TextParis className="text-white text-3xl md:text-5xl tracking-tighter uppercase leading-[0.75]">
                 {item.name}
@@ -147,6 +73,31 @@ export default function MenuPage() {
           </div>
         ))}
       </div>
+
+      {/* Nueva Sección de Menú en Cards Color Crema */}
+      <section className="w-full py-20 flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {extraMenu.map((section, idx) => (
+            <div 
+              key={idx} 
+              style={{ backgroundColor: '#E6D5B8' }}
+              className="w-[300px] p-8 rounded-[2rem] shadow-2xl flex flex-col items-center rounded-xl"
+            >
+              <TextParis className="text-[#1a1a1a] text-5xl mb-6 text-center">
+                {section.category.charAt(0).toUpperCase() + section.category.slice(1).toLowerCase()}
+              </TextParis>
+              
+              <div className="flex flex-col gap-3 w-full">
+                {section.items.map((item, i) => (
+                  <p key={i} className="text-[#333] text-xl text-left lowercase leading-tight border-b border-black/5 pb-1">
+                    {item}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
