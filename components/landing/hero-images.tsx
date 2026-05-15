@@ -32,7 +32,6 @@ export const HeroImages = () => {
             />
           </div>
         </div>
-        
       </div>
     </div>
   );
