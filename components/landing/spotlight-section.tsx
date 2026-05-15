@@ -74,7 +74,7 @@ export const SpotlightSection: React.FC = () => {
 
         {/* Título */}
         <div className="border-b border-white/10 mb-8 pb-6">
-          <TextParis as="h2" className="text-4xl md:text-7xl tracking-tighter leading-none font-light">
+          <TextParis as="p" className="text-4xl md:text-7xl tracking-tighter leading-none font-light">
             {t('title')}
           </TextParis>
         </div>

@@ -132,7 +132,7 @@ export const ExperiencesSection: React.FC = () => {
         
         {/* Título de Sección */}
         <div className="border-b border-white/20 mb-12 pb-4">
-          <TextParis as="h2" className="text-center text-4xl md:text-8xl tracking-tighter leading-tight font-[300]">
+          <TextParis as="p" className="text-center text-4xl md:text-8xl tracking-tighter leading-tight font-[300]">
             {t('mainTitle')}
           </TextParis>
         </div>

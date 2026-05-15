@@ -26,7 +26,7 @@ const arvo = Arvo({
 
 export const metadata: Metadata = {
   // Título: Ideal entre 50-60 caracteres. Incluye ubicación para SEO local.
-  title: "El Sendero Café | Café en San Juan Talpa, La Paz, El Salvador",
+  title: "El Sendero Café | Cafeteria en San Juan Talpa, La Paz, El Salvador",
   
   // Descripción: Entre 140-160 caracteres. Debe invitar a la acción.
   description: "Disfruta de la tranquilidad y el auténtico sabor del café salvadoreño en El Sendero Café. Gastronomía artesanal y el mejor ambiente en San Juan Talpa, La Paz.",
