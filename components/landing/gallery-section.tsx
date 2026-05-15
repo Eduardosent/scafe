@@ -14,14 +14,10 @@ interface GalleryItem {
 }
 
 const images: GalleryItem[] = [
-  { id: 1, src: '/galery-1.jpg', alt: 'Gallery Image 1', gridClasses: 'md:col-span-2 md:row-span-2' },
-  { id: 2, src: '/galery-2.jpg', alt: 'Gallery Image 2', gridClasses: 'md:col-span-1 md:row-span-1' },
-  { id: 3, src: '/galery-3.jpg', alt: 'Gallery Image 3', gridClasses: 'md:col-span-1 md:row-span-1' },
-  { id: 4, src: '/galery-4.jpg', alt: 'Gallery Image 4', gridClasses: 'md:col-span-2 md:row-span-1' },
-  // { id: 5, src: '/galery-5.jpg', alt: 'Gallery Image 5', gridClasses: 'md:col-span-1 md:row-span-1' },
-  // { id: 6, src: '/galery-6.jpg', alt: 'Gallery Image 6', gridClasses: 'md:col-span-1 md:row-span-1' },
-  // { id: 7, src: '/galery-7.jpg', alt: 'Gallery Image 7', gridClasses: 'md:col-span-1 md:row-span-1' },
-  // { id: 8, src: '/galery-8.jpg', alt: 'Gallery Image 8', gridClasses: 'md:col-span-1 md:row-span-1' },
+  { id: 1, src: '/galery-1.jpg', alt: 'Ambiente El Sendero Café 1', gridClasses: 'md:col-span-2 md:row-span-2' },
+  { id: 2, src: '/galery-2.jpg', alt: 'Ambiente El Sendero Café 2', gridClasses: 'md:col-span-1 md:row-span-1' },
+  { id: 3, src: '/galery-3.jpg', alt: 'Ambiente El Sendero Café 3', gridClasses: 'md:col-span-1 md:row-span-1' },
+  { id: 4, src: '/galery-4.jpg', alt: 'Ambiente El Sendero Café 4', gridClasses: 'md:col-span-2 md:row-span-1' },
 ];
 
 export const GallerySection: React.FC = () => {
@@ -73,6 +69,8 @@ export const GallerySection: React.FC = () => {
                   src={img.src} 
                   alt={img.alt} 
                   fill 
+                  // Optimizamos sizes basándonos en tu grid (md:col-span-2 es aprox 50vw, md:col-span-1 es 25vw)
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" 
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -103,6 +101,7 @@ export const GallerySection: React.FC = () => {
                   <button 
                     onClick={() => setSelectedImage(null)} 
                     className="absolute top-4 right-4 md:top-6 md:right-6 text-white bg-white/10 hover:bg-white/20 z-[60] p-3 rounded-full transition-colors backdrop-blur-md"
+                    aria-label="Cerrar galería"
                   >
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -117,19 +116,21 @@ export const GallerySection: React.FC = () => {
                           alt={selectedImage.alt}
                           fill
                           className="object-contain"
+                          sizes="100vw"
                           priority
                         />
                       </div>
                     )}
 
-                    <button onClick={showPrev} className="absolute left-0 md:-left-20 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors p-4">
+                    <button onClick={showPrev} className="absolute left-0 md:-left-20 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors p-4" aria-label="Imagen anterior">
                       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
                     </button>
-                    <button onClick={showNext} className="absolute right-0 md:-right-20 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors p-4">
+                    <button onClick={showNext} className="absolute right-0 md:-right-20 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors p-4" aria-label="Siguiente imagen">
                       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
                     </button>
                   </div>
 
+                  {/* Miniaturas con dimensiones explícitas para evitar CLS en el modal */}
                   <div className="w-full flex justify-center mt-8 gap-2 overflow-x-auto py-4">
                     {images.map((img) => (
                       <div
@@ -139,7 +140,13 @@ export const GallerySection: React.FC = () => {
                           selectedImage?.id === img.id ? 'ring-2 ring-white scale-110 opacity-100' : 'opacity-30 hover:opacity-100'
                         }`}
                       >
-                        <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                        <Image 
+                          src={img.src} 
+                          alt={`Miniatura ${img.id}`} 
+                          width={96} // Dimensiones explícitas para CLS
+                          height={64}
+                          className="object-cover w-full h-full" 
+                        />
                       </div>
                     ))}
                   </div>

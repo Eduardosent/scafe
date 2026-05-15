@@ -34,13 +34,13 @@ export const Hero = () => {
 
         {/* COLUMNA DE TEXTOS A LA DERECHA */}
         <div className='flex flex-col'>
-          <TextParis variant='fraunces' 
+          <TextParis variant='fraunces' as='h1'
             className='mt-6 text-center md:text-left text-white text-lg md:text-4xl max-w-[370px] md:max-w-[470px] leading-[1] tracking-[-0.05em] opacity-90 font-semibold transform scale-y-110'
           >
             {t('description')}
           </TextParis>
           
-          <TextParis variant='fraunces' 
+          <TextParis variant='fraunces' as='h2'
             className='mt-28 text-center md:text-left text-white text-lg md:text-4xl max-w-[370px] md:max-w-[400px] leading-[0.85] tracking-[-0.05em] opacity-90 font-[200]'
           >
             {t('events')}

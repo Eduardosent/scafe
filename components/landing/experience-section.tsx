@@ -154,14 +154,18 @@ export const ExperiencesSection: React.FC = () => {
                 </TextParis>
               </div>
 
-              {/* Imagen */}
-              <div className="relative w-full h-[200px] md:h-[240px]">
+              {/* Contenedor de Imagen con dimensiones optimizadas para CLS */}
+              <div className="relative w-full h-[200px] md:h-[240px] overflow-hidden">
                 <Image
                   src={exp.image}
                   alt={exp.title}
                   fill
+                  // Definir sizes ayuda a Next.js a elegir el tamaño de imagen correcto y evita saltos de layout
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
+                  // Solo la primera imagen tiene prioridad para no saturar el ancho de banda inicial
                   priority={index === 0}
+                  quality={85}
                 />
               </div>
             </div>

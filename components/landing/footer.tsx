@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
               El Sendero Café
             </TextParis>
             <div className="flex items-start gap-3 text-zinc-400 mt-2">
-              <FiMapPin className="w-5 h-5 mt-1 flex-shrink-0 text-white" />
+              <FiMapPin className="w-5 h-5 mt-1 flex-shrink-0 text-white" aria-hidden="true" />
               <p className="text-sm leading-relaxed">
                 San Juan Talpa, La Paz,<br />
                 El Salvador.
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
               {t('hoursTitle')}
             </h4>
             <div className="flex items-start justify-center md:justify-start gap-3 text-zinc-400">
-              <FiClock className="w-5 h-5 mt-0.5 flex-shrink-0 text-white" />
+              <FiClock className="w-5 h-5 mt-0.5 flex-shrink-0 text-white" aria-hidden="true" />
               <ul className="text-sm space-y-2">
                 <li>
                   <span className="font-bold text-white block">{t('daysRange')}</span>
@@ -60,23 +60,29 @@ export const Footer: React.FC = () => {
               <Link 
                 href="https://www.instagram.com/elsenderocafesv/" 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all duration-300 border border-white/10"
+                aria-label="Siguenos en Instagram"
               >
-                <FaInstagram size={20} />
+                <FaInstagram size={20} aria-hidden="true" />
               </Link>
               <Link 
                 href="https://www.tiktok.com/@elsenderocafesv" 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all duration-300 border border-white/10"
+                aria-label="Siguenos en TikTok"
               >
-                <FaTiktok size={20} />
+                <FaTiktok size={20} aria-hidden="true" />
               </Link>
               <Link 
                 href="https://www.facebook.com/people/El-Sendero-Cafe/61578642612254/" 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all duration-300 border border-white/10"
+                aria-label="Siguenos en Facebook"
               >
-                <FaFacebookF size={20} />
+                <FaFacebookF size={20} aria-hidden="true" />
               </Link>
             </div>
           </div>

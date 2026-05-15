@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -19,11 +18,17 @@ export const HeroImages = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/5">
             <Image
               src="/hero-cafe.avif"
-              alt="Hero café"
+              // SEO: Alt más descriptivo con palabras clave
+              alt="Experiencia de café artesanal en El Sendero Café"
               width={800}
               height={450}
-              className="w-full h-auto object-contain block"
               priority
+              // 2. FUERZA la prioridad de descarga a nivel de navegador (Solución al error)
+              fetchPriority="high"
+              // 3. Optimización de decodificación
+              decoding="sync"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
+              className="w-full h-auto object-cover block"
             />
           </div>
         </div>
