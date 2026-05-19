@@ -109,18 +109,21 @@ export const ExperiencesSection: React.FC = () => {
     {
       title: t('spitFired'),
       description: t('spitFiredDesc'),
+      verticalTexts: ["烤肉串或烤肉", "やきとり & 揚げ物", "የጥብስ ስጋ", "لحم مشوي"],
       bgColor: "bg-[#C2C0B8]",
       image: "/carne.jpg",
     },
     {
       title: t('teasCoffees'),
       description: t('teasCoffeesDesc'),
+      verticalTexts: ["茶和甜飲料", "紅茶と甘い飲み物", "ሻይ እና ጣፋጭ መጠጦች", "الشاي والمشروبات الحلوة"],
       bgColor: "bg-[#2ECC71]",
       image: "/cafe.jpg",
     },
     {
       title: t('pastriesSnacks'),
       description: t('pastriesSnacksDesc'),
+      verticalTexts: ["糕點和小吃", "ペストリーと軽食", "መጋገሪያዎች እና መክሰስ", "المعجنات والوجبات الخفيفة"],
       bgColor: "bg-[#C2C0B8]",
       image: "/postre.jpg",
     }
@@ -130,40 +133,56 @@ export const ExperiencesSection: React.FC = () => {
     <section className="bg-black text-white py-24 px-4 overflow-hidden">
       <div className="max-w-[1200px] mx-auto">
         
-        {/* Título de Sección */}
         <div className="border-b border-white/20 mb-12 pb-4">
           <TextParis as="p" className="text-center text-4xl md:text-8xl tracking-tighter leading-tight font-[300]">
             {t('mainTitle')}
           </TextParis>
         </div>
 
-        {/* Grid de Experiencias */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           {experiences.map((exp, index) => (
-            <div 
-              key={index} 
-              className="flex flex-col"
-            >
+            <div key={index} className="flex flex-col">
+              
               {/* Bloque de Texto */}
-              <div className={`${exp.bgColor} text-black p-5 min-h-[180px] md:min-h-[220px] flex flex-col justify-start`}>
+              <div className={`${exp.bgColor} text-black p-5 min-h-[220px] md:min-h-[260px] flex flex-col justify-start`}>
                 <TextParis as="h3" className="text-2xl md:text-4xl mb-3 leading-none font-[500]">
                   {exp.title}
                 </TextParis>
-                <TextParis as="p" className="text-xl md:text-2xl leading-[1] font-medium tracking-[-0.05em] md:max-w-[250px] font-[500]">
-                  {exp.description}
-                </TextParis>
+
+                {/* Contenedor Flex para poner el texto vertical a la par de la descripción */}
+                <div className="flex flex-row justify-between items-start flex-grow gap-2">
+                  
+                  {/* Descripción (Izquierda) */}
+                  <div className="max-w-[180px] md:max-w-[220px]">
+                    <TextParis as="p" className="text-xl md:text-2xl leading-[1] font-medium tracking-[-0.05em] font-[500]">
+                      {exp.description}
+                    </TextParis>
+                  </div>
+
+                  {/* Texto Vertical (Derecha) */}
+                  <div className="flex flex-row-reverse gap-1 pr-2">
+                    {exp.verticalTexts.map((text, i) => (
+                      <p 
+                        key={i}
+                        className="text-[10px] md:text-[11px]"
+                        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+                      >
+                        {text}
+                      </p>
+                    ))}
+                  </div>
+
+                </div>
               </div>
 
-              {/* Contenedor de Imagen con dimensiones optimizadas para CLS */}
+              {/* Imagen */}
               <div className="relative w-full h-[200px] md:h-[240px] overflow-hidden">
                 <Image
                   src={exp.image}
                   alt={exp.title}
                   fill
-                  // Definir sizes ayuda a Next.js a elegir el tamaño de imagen correcto y evita saltos de layout
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
-                  // Solo la primera imagen tiene prioridad para no saturar el ancho de banda inicial
                   priority={index === 0}
                   quality={85}
                 />

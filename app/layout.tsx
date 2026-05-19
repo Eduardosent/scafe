@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   
   // Palabras clave para buscadores
   keywords: [
+    "El Sendero Cafe San Juan Talpa El Salvador",
     "Café de especialidad El Salvador", 
     "Restaurante en San Juan Talpa", 
     "Mejor café La Paz El Salvador", 
